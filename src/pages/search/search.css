@@ -1086,10 +1086,10 @@ only screen and (min-device-pixel-ratio:1.5) {
 }
 
 .search-wrap {
-  position: relative;
   padding: 10px 7px;
-  font-size: 0
+  overflow: hidden;
 }
+
 
 .search-wrap .goods-item {
   width: 49%;
@@ -1150,3 +1150,4 @@ only screen and (min-device-pixel-ratio:1.5) {
   padding-right: 0;
   padding-top: 0
 }
+

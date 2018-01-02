@@ -1,0 +1,19 @@
+.popout-enter-active,
+.popout-leave-active {
+  transition: transform .3s ease-in-out;
+}
+.popout-enter,
+.popout-leave-to
+{
+  transform: translateY(100%)
+}
+
+.mackout-enter-active,
+.mackout-leave-active {
+  transition: opacity .3s ease-in-out
+}
+.mackout-enter,
+.mackout-leave-to
+{
+  opacity:0
+}

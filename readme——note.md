@@ -12,7 +12,7 @@
 
 8. created 生命周期 props 向child传递数据【相当于自定义属性】可以写成对象也可以写成数组
 
-9. axios swiper 第三方库
+9. axios swiper 第三方库  fullpage
 10. filters过滤器  利用【|】
 
 11. 下面的值为false:
@@ -32,3 +32,13 @@ NaN
 12. 混合mixins的使用
 
 13. velocity-animate 动画[import velocity from 'velocity-animate']
+
+14. v-html   qs解析query的JS库
+
+15. [v-clock]{
+      display: none;
+    }  【编译没有完成的时候不显示】
+
+16. 图片需要固定宽高
+
+17. touchmove【移动端事件】

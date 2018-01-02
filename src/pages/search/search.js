@@ -1,5 +1,6 @@
 import 'css/common.css'
 import './search.css'
+import 'mint-ui/lib/style.css'
 
 import Vue from 'vue'
 import axios from 'axios'
@@ -16,49 +17,39 @@ let {keyword, id} = qs.parse(location.search.substr(1))
 new Vue({
     el:'.container',
     data: {
-        searchLists: null,
+        searchLists: [],
         keyword,
         totop: false,
         loading: false,
-        allLoaded: false,
-        pageNum: 0
+        // allLoaded: false,
+    },
+    created() {
+        this.getSearchList()
     },
     methods: {
         getSearchList() {
-            // this.loading = true;
-            // setTimeout(() => {
-            //     console.log(2)
-            //     this.loading = false;
-            // }, 2500);
-            // console.log(2)
-            if (this.allLoaded) {
-                return
-            }
-            this.loading = true
-            // 告诉插件不要请求了
             axios.post(url.searchLists, { 
                 keyword, id,
-                pageNum: this.pageNum
             }).then(res => 
-            {
+            {   
                 let curLists = res.data.lists
-                if (curLists.length < 6) {
-                    this.allLoaded = true
-                }
-                if (this.searchLists) {
-                    this.searchLists = this.searchLists.concat(curLists)
-                    // this.loading = false
-                } else {
-                    //第一次请求数据
-                    this.searchLists = curLists
-                    this.loading = false
-                }
-                
-                this.pageNum++
-                console.log(this.loading)
-                console.log(2)
+                this.searchLists = this.searchLists.concat(curLists)
             })
-            
+            // v - infinite - scroll="getSearchList"
+            // infinite - scroll - disabled="loading"
+            // infinite - scroll - distance="200"
+        },
+        getMoreLists(){
+            console.log(2)
+            this.loading = true
+            axios.post(url.searchLists, {
+                keyword, id,
+            }).then(res => {
+                let curLists = res.data.lists
+                this.searchLists = this.searchLists.concat(curLists)
+                this.loading = false
+            })
+            this.loading = false
         },
         move(){
             if (document.documentElement.scrollTop > 100) {
@@ -72,8 +63,6 @@ new Vue({
             // document.documentElement.scrollTop = 0
         }
     },
-    created() {
-        this.getSearchList()
-    },
+   
     mixins:[mixin]
 })

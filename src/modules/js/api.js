@@ -5,7 +5,10 @@ let url = {
     topList: '/category/topList',
     subList: '/category/subList',
     rank: '/category/rank',
-    searchLists: '/search/list'
+    searchLists: '/search/list',
+    details: '/goods/details',
+    deal: '/goods/deal',
+    addCart: '/cart/add',
 }
 //开发环境与真实环境的切换
 let host = 'http://rap.taobao.org/mockjsdata/24170';
