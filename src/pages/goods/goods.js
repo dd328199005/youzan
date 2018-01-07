@@ -11,10 +11,12 @@ import url from 'js/api.js'
 import axios from 'axios'
 import mixin from 'js/mixin.js'
 import qs from 'qs'
+import Swiper from 'components/Swiper.vue'
 
 let {id} = qs.parse(location.search.substr(1))
+
 let detailTab = ['商品详情','本店成交']
-import Swiper from 'components/Swiper.vue'
+
 new Vue({
     el: '#app',
     data: {

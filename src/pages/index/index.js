@@ -48,7 +48,6 @@ new Vue({
                 }
                 this.loading = false
                 this.pageNum++
-                console.log(2)
             })
         },
         getBanner(){

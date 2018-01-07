@@ -1,0 +1,61 @@
+.van-modal {
+    background-color: #000000;
+    opacity: .7;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.van-dialog {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    overflow: hidden;
+}
+.van-dialog__message {
+    padding: 30px 30px;
+    position: relative;
+}
+.van-dialog__footer {
+    border-top: 1px #ccc solid;
+    display: flex
+}
+.van-button {
+    background: white;
+    border: none;
+    outline: none;
+    flex: 1;
+    line-height: 40px;
+}
+.van-button:nth-child(1) {
+  border-right: 1px rgb(204, 204, 204) solid
+}
+.van-button:nth-child(2) {
+  color: red
+}
+
+.removed_dailog-enter-active,
+.removed_dailog-leave-active {
+  transition: opacity .3s ease-in-out;
+
+}
+.removed_dailog-enter,
+.removed_dailog-leave-to {
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
