@@ -10,7 +10,10 @@ Vue.use(InfiniteScroll);
 import Foot from 'components/Footer.vue'
 import Swiper from 'components/Swiper.vue'
 
+import bus from 'js/bus.js'
+
 new Vue({
+    
     el:'#app',//挂载点，此处不写的话需要在vm.$mount()触发
     data: {
         lists: null,
@@ -19,12 +22,19 @@ new Vue({
         loading: false,
         allLoaded:false,
         bannerLists:[],
+        propsDemo:18
     },
     created(){
         this.getLists(),
-        this.getBanner()
+        this.getBanner(),
+        bus.$on('chenga',age =>{
+            console.log(age)
+        })
     },
     methods: {
+        demo(e){
+            console.log(e)
+        },  
         getLists(){
             // 判断是否请求完数据了
             if (this.allLoaded) {

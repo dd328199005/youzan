@@ -19,6 +19,8 @@
   import qs from 'qs'
   let {index} = qs.parse(location.search.substr(1))
 
+  import bus from 'js/bus.js'
+
   let navConfig = [{
     name: '有赞',
     icon: 'icon-home',
@@ -39,6 +41,12 @@
   ]
 
   export default {
+    props:['obj'],
+    created(){
+      console.log(this.obj)
+      this.$emit('change',2)
+      bus.$emit('chenga',4)
+    },
     data(){
       return {
         navConfig,

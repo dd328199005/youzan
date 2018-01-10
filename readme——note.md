@@ -56,3 +56,25 @@ NaN
 23. promise 的运用~
 
 24. Class 的静态方法的运用 【static】
+
+25. ref做识别dom  【dom节点的相应注册】
+
+26. 函数传入 $event用来传入对象事件
+
+27. router-view   router-link的使用   【路由默认使用hash】
+
+28. scoped 【HTML5新特性】
+
+29.  this.$router.push({path:'/address/form'})//编程式导航     router-link //正常式导航
+
+30. :to="{name:"all"}"  可以给路由起名字 然后动态绑定to来使用它
+
+31. vux vue ui库
+
+32. v-model.trim去除前后空格
+
+33.   scrollBehavior(to, from, savedPosition) {
+        return { x: 0, y: 0 }
+    }  【路由滚动行为——回到顶部】
+
+34. $on $emit 不同的使用方法

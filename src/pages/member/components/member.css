@@ -160,7 +160,8 @@ only screen and (min--moz-device-pixel-ratio: 1.5),
 only screen and (-o-min-device-pixel-ratio: 3 / 2),
 only screen and (min-device-pixel-ratio: 1.5) {
   .block.block-list li span.clear {
-    background: url("/v2/image/wap/icon_clear@2x.png") center center no-repeat;
+    background: url("https://b.yzcdn.cn/v2/image/wap/icon_clear@2x.png") center center no-repeat;
+
     background-size: 100%
   }
 }
@@ -951,6 +952,7 @@ only screen and (min-device-pixel-ratio: 1.5) {
   width: 20px;
   height: 20px;
   margin-top: -10px;
-  background: url("/v2/image/wap/icon_check_circle_checked@2x.png") center center no-repeat;
+  background: url("https://b.yzcdn.cn/v2/image/wap/icon_check_circle_checked@2x.png") center center no-repeat;
+
   background-size: 100% auto
 }
