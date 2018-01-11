@@ -3,8 +3,8 @@
     <div class="block-list address-list section section-first js-no-webview-block">
       <a class="block-item js-address-item address-item " 
         @click="toEdit(list)"
-        v-if="data && data.length"
-        v-for="(list) in data"
+        v-if="lists && lists.length"
+        v-for="(list) in lists"
         :class="{'address-item-default':list.isDefault}"
         :key="list.id"
       >
@@ -31,20 +31,28 @@ import addressUrl from "js/easy_api.js"
 // import address from "js/address_service.js";
 
 export default {
-  data(){
-    return {
-      data: null,
-    }
-  },
+  // data(){
+  //   return {
+  //     data: null,
+  //   }
+  // },
   created(){
+    this.$store.dispatch('getLists')
+
     // address.list().then(res=>{
     //   this.data = res.data.lists
     // })
     // document.documentElement.scrollTop = 0
-    axios.post(addressUrl.addressList).then(res => {
-      this.data = res.data.lists
-    })
 
+    // axios.post(addressUrl.addressList).then(res => {
+    //   this.data = res.data.lists
+    // })
+
+  },
+  computed:{
+    lists() {
+      return this.$store.state.lists
+    }
   },
   methods: {
     toEdit(list){
