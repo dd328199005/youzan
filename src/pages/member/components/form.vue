@@ -42,7 +42,7 @@
     <div class="block section js-delete  block-control-btn" v-show="type==='edit'" @click="remove">
       <div class="block-item c-red center">删除</div>
     </div>
-    <div class="block stick-bottom-row center js-save-default " @click="setDefault">
+    <div class="block stick-bottom-row center js-save-default " @click="setDefault" v-show="type==='edit'">
       <button class="btn btn-standard js-save-default-btn">设为默认收货地址</button>
     </div>
   </div>

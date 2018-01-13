@@ -88,3 +88,5 @@ NaN
         【深度监听】watch监听内部的变化     【对对象的监听有时候需要json.parse.需要深拷贝】应为内存不变不会引起变化
 
 36. 组件分发map查文档   mapActions   map…
+
+37. 状态管理的时候异步操作只能在action  对数据的修改要在mutation里

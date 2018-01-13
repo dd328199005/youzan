@@ -1,5 +1,7 @@
 import Address from "js/address_service.js";
 
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
+
 export default {
     data(){
         return{
@@ -128,9 +130,11 @@ export default {
             //     this.$router.go(-1)
             // })
         },
+        ...mapActions(['removeAction']),
         remove(){
             if (window.confirm('确认删除？')) {
-                this.$store.dispatch('remove',this.id)
+                // this.$store.dispatch('removeAction',this.id)
+                this.removeAction(this.id)
                 // this.remove(this.id)
                 // this.$router.go(-1)
                 // Address.remove(this.id).then(res => {

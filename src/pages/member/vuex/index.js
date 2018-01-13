@@ -63,7 +63,7 @@ const store = new Vuex.Store({
                 commit('add',instance)
             })
         },
-        remove({commit},id){
+        removeAction({commit},id){
             console.log(2)
             address.remove(id).then(res =>{
                 commit('remove',id)
