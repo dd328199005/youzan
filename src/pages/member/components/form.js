@@ -1,4 +1,5 @@
 import Address from "js/address_service.js";
+
 export default {
     data(){
         return{
@@ -35,7 +36,11 @@ export default {
     },
     watch: {
         provinceValue(val){
-            if(val === -1)return
+            if(val === '-1'){
+                this.cityValue = -1
+                this.districtValue = -1
+                return
+            }
             let int = this.instance
             let list = this.addressData.list
             let index = list.findIndex(item => {
@@ -44,15 +49,17 @@ export default {
             this.cityList = list[index].children
             this.cityValue = -1
             this.districtValue = -1
-            if (this.first ) {
+            if (this.type === 'edit' && this.first ) {
                 this.cityValue = parseInt(this.instance.cityValue)
-                this.first = !this.first
+                // this.first = !this.first
             }
             // this.provinceValue = parseInt(int.provinceValue)
             // this.cityValue = parseInt(this.instance.cityValue) 
         },
         cityValue(val){
-            if (val === -1) return
+            if (val === -1) {
+                return
+            }
             let list = this.cityList
             let int = this.instance
             let index = list.findIndex(item => {
@@ -61,12 +68,23 @@ export default {
             this.districtList= list[index].children
             this.districtValue = -1
             // this.cityValue = parseInt(this.instance.cityValue) 
-            if (this.first) {
+            if (this.type === 'edit' && this.first) {
                 this.first = !this.first
                 this.districtValue = parseInt(this.instance.districtValue)
             }
+        },
+        vuexLists: {
+            handler(){
+                this.$router.go(-1)
+            },
+            deep: true
         }
-        
+    },
+    computed: {
+        vuexLists(){
+            return this.$store.state.lists
+        },
+    
     },
     methods: {
         add(){
@@ -74,26 +92,35 @@ export default {
             let data = { name, tel, provinceValue, cityValue, districtValue, address }
             // this.$router.go(-1)
             if (this.type ==='add') {
-                Address.add(data).then(res => {
-                    this.$router.go(-1)
-                    console.log(2)
-                }).catch(rej => {
-                    console.log(2)
-                    this.$router.go(-1)
-                })
+                data.id = parseInt(Math.random() * 10000) 
+                // Address.add(data).then(res => {
+                //     this.$router.go(-1)
+                // }).catch(rej => {
+                //     this.$router.go(-1)
+                // })
+                this.$store.dispatch('addAction',data)
+                
             }
             if (this.type === 'edit') {
                 data.id = this.id
                 Address.add(data).then(res => {
-                    this.$router.go(-1)
+                    this.$store.dispatch('update', data)
+                    // this.$router.go(-1)
                 }).catch(rej => {
                     console.log(2)
-                    this.$router.go(-1)
+                    // this.$router.go(-1)
                 })
             }
         },
         setDefault(){
-            this.$router.go(-1)
+            Address.setDefault(this.id).then(res => {
+                this.$store.dispatch('setDefault', this.id)
+                // this.setDefault(data)
+            }).catch(rej => {
+                console.log(2)
+                // this.$router.go(-1)
+            })
+            // this.$router.go(-1)
             // Address.setDefault(this.id).then(res => {
             //     this.$router.go(-1)
             // }).catch(rej => {
@@ -103,7 +130,9 @@ export default {
         },
         remove(){
             if (window.confirm('确认删除？')) {
-                this.$router.go(-1)
+                this.$store.dispatch('remove',this.id)
+                // this.remove(this.id)
+                // this.$router.go(-1)
                 // Address.remove(this.id).then(res => {
                 //     this.$router.go(-1)
                 //     console.log(2)
@@ -112,6 +141,11 @@ export default {
                 //     this.$router.go(-1)
                 // })
             }
-        }
+        },
+        // update(){
+        //     let { name, tel, provinceValue, cityValue, districtValue, address , id} = this
+        //     let data = { name, tel, provinceValue, cityValue, districtValue, address , id }
+        //     this.$store.dispatch('update',data)
+        // }
     }
 }

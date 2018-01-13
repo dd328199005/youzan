@@ -6,6 +6,6 @@ import store from './vuex/index.js'
 //根组件注入
 new Vue({
     el: '#app',
-    router,
-    store
+    router: router,
+    store: store
 })

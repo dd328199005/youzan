@@ -78,3 +78,13 @@ NaN
     }  【路由滚动行为——回到顶部】
 
 34. $on $emit 不同的使用方法
+
+35. vuexLists: {
+            handler(){
+                this.$router.go(-1)
+            },
+            deep: true
+        }
+        【深度监听】watch监听内部的变化     【对对象的监听有时候需要json.parse.需要深拷贝】应为内存不变不会引起变化
+
+36. 组件分发map查文档   mapActions   map…

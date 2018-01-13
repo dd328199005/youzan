@@ -37,7 +37,10 @@ export default {
   //   }
   // },
   created(){
-    this.$store.dispatch('getLists')
+    if (!this.lists) {
+      this.$store.dispatch('getLists')
+    }
+    
 
     // address.list().then(res=>{
     //   this.data = res.data.lists
