@@ -4,6 +4,8 @@
 3. mint-ui ui库 阅读官网~看全局或者按需引入的介绍 [这是移动端的]elment是PC端的
 4. concat()数组合并方法
 
+6. 组件嵌入 is 属性标识渲染结果~~ 单vue组件中可不写
+
 5. 单vue组件 template是必须的而且{根节点}只能是一个 script只能有一个
 
 6. YD ui vue推荐移动端UI组件库
@@ -90,3 +92,6 @@ NaN
 36. 组件分发map查文档   mapActions   map…
 
 37. 状态管理的时候异步操作只能在action  对数据的修改要在mutation里
+
+
+38. vuex 不同模块可以有不同的的内部名字 但是getter不能重名

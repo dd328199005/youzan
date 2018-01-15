@@ -28,7 +28,7 @@ const store = new Vuex.Store({
             state.lists.splice(index,1)
         },
         update(state,instance){
-            let lists = JSON.parse(JSON.stringify(state.lists))
+            let lists = JSON.parse(JSON.stringify(state.lists)) 
             let index = lists.findIndex(item => {
                 return item.id === instance.id
             })

@@ -58,8 +58,6 @@ new Vue({
         changeNum(num){
             if (num<0 && this.skuNum === 1) return
             this.skuNum +=num
-         
-            
         },
         getDetails(){
             axios.post(url.details,{id}).then(res =>{
